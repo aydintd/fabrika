@@ -1,4 +1,4 @@
-##  Gereksinimler
+### Gereksinimler
 
 -   [Packer](http://www.packer.io/downloads.html)
 
@@ -6,7 +6,7 @@
 
 -   Rake
 
-##  Kullanım
+### Kullanım
 
 -   Öntanımlı sanalı inşa et
 
@@ -27,7 +27,7 @@
     $ rake build
     ```
 
-##  Ortam Değişkenleri
+### Ortam Değişkenleri
 
 -   `PACKER_CACHE_DIR` → Önbellek dizini
 
@@ -35,7 +35,7 @@
 
 -   `PACKER_LOG_DIR` → Günlük dizini
 
-##  Yeni Şablon Geliştirme
+### Yeni Şablon Geliştirme
 
 -   Dizin oluştur
 
