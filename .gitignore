@@ -1,0 +1,16 @@
+/.cache/
+/.out/
+/.log/
+packer_cache/
+output_*/
+output-*/
+artifact/
+*.log
+*.box
+*.ovf
+*.ova
+*.vdi
+*.vmdk
+*.raw
+*.qcow
+*.qcow2
