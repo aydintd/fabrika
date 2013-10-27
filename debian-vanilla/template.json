@@ -13,6 +13,7 @@
       "iso_checksum": "46ca016ad17990539e6375b0d8ff24ce",
       "iso_checksum_type": "md5",
       "iso_url": "http://ftp.debian.org/debian/dists/unstable/main/installer-i386/current/images/netboot/mini.iso",
+      "guest_additions_path": "/tmp/VBoxGuestAdditions.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_wait_timeout": "40m",

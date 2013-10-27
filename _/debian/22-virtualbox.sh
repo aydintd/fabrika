@@ -2,9 +2,9 @@
 
 say() { echo -e >&2 "\033[36;01m${*}\033[0m"; }
 
-vbox_version_file=/home/vagrant/.vbox_version
+guest_additions_iso=/tmp/VBoxGuestAdditions.iso
 
-[ -f "$vbox_version_file" ] || exit 0
+[ -f $guest_additions_iso ] || exit 0
 
 say install virtualbox guest additions
 
@@ -19,10 +19,10 @@ apt-get -y --no-install-recommends install \
 	linux-headers-$(uname -r) dkms build-essential
 apt-get -y --no-install-recommends install libdbus-1-3
 
-mount -o loop VBoxGuestAdditions_$(cat "$vbox_version_file").iso /mnt
+mount -o loop $guest_additions_iso /mnt
 yes|sh /mnt/VBoxLinuxAdditions.run
 umount /mnt
-rm -f VBoxLinuxAdditions.iso
+rm -f $guest_additions_iso
 
 /etc/init.d/vboxadd start
 
