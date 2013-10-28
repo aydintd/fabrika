@@ -155,8 +155,8 @@ class Template
         h['name'] = "#{name}-production"
       else
         h['name'] = "#{name}-#{h['type']}"
-        h['iso_checksum'] = new_checksum(h)
       end
+      h['iso_checksum'] = new_checksum(h)
     end
     template['post-processors'].each do |h|
       case h['type']
