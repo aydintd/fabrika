@@ -1,5 +1,6 @@
 d-i clock-setup/utc boolean true
-d-i time/zone string GMT
+d-i clock-setup/ntp boolean true
+d-i time/zone string Europe/Istanbul
 d-i passwd/user-fullname string vagrant
 d-i passwd/username string vagrant
 d-i passwd/user-password password vagrant
