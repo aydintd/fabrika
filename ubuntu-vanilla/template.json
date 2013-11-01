@@ -26,10 +26,6 @@
         "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
          "hostname={{ .Name }} ",
         "fb=false debconf/frontend=noninteractive ",
-         "passwd/user-fullname=Vagrant ",
-         "passwd/username=vagrant ",
-         "passwd/user-password=vagrant ",
-         "passwd/user-password-again=vagrant ",
          "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=TR ",
          "keyboard-configuration/variant=TR console-setup/ask_detect=false ",
          "initrd=/install/initrd.gz -- <enter>"
