@@ -2,17 +2,17 @@
   "builders": [
     {
       "type": "virtualbox",
-      "name": "ubuntu-desktop",
-      "vm_name": "ubuntu-desktop",
-      "guest_os_type": "Ubuntu",
+      "name": "",
+      "vm_name": "",
+      "guest_os_type": "Debian",
       "format": "ova",
       "output_directory": "artifact",
       "disk_size": 10000,
       "headless": false,
       "http_directory": ".",
-      "iso_checksum": "674ce4d2183e273bee8106a07a59d397",
+      "iso_checksum": "",
       "iso_checksum_type": "md5",
-      "iso_url": "http://cdimage.ubuntu.com/lubuntu/daily/current/saucy-alternate-i386.iso",
+      "iso_url": "http://ftp.debian.org/debian/dists/unstable/main/installer-i386/current/images/netboot/mini.iso",
       "guest_additions_path": "/tmp/VBoxGuestAdditions.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
@@ -20,27 +20,21 @@
       "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P -h now",
       "boot_wait": "5s",
       "boot_command": [
-        "<esc><esc><enter><wait>",
-        "/install/vmlinuz noapic ",
-        "auto=true priority=critical url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/template.preseed ",
-        "console-keymaps-at/keymap=tr locale=tr_TR.UTF-8 ",
-        "fb=false debconf/frontend=Gnome ",
-        "hostname={{ .Name }} ",
-        "hostname=vagrant ",
+        "<esc><enter><wait>",
+        "auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/template.preseed ",
+        "fb=false debconf/frontend=noninteractive ",
         "passwd/user-fullname=Vagrant ",
         "passwd/username=vagrant ",
         "passwd/user-password=vagrant ",
         "passwd/user-password-again=vagrant ",
-        "initrd=/install/initrd.gz -- <enter>"
+        "<enter>"
       ],
       "vboxmanage": [
         [
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "1024",
-          "--pae",
-          "on"
+          "768"
         ]
       ]
     }
@@ -50,22 +44,22 @@
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'",
       "scripts": [
-        "../_/ubuntu/10-update.sh",
-        "../_/ubuntu/11-base.sh",
-        "../_/ubuntu/12-organisation.sh",
-        "../_/ubuntu/21-vagrant.sh",
-        "../_/ubuntu/22-virtualbox.sh",
+        "../_/debian/10-update.sh",
+        "../_/debian/11-base.sh",
+        "../_/debian/12-organisation.sh",
+        "../_/debian/21-vagrant.sh",
+        "../_/debian/22-virtualbox.sh",
         "template.sh",
-        "../_/ubuntu/91-grub.sh",
-        "../_/ubuntu/98-cleanup.sh",
-        "../_/ubuntu/99-zerodisk.sh"
+        "../_/debian/91-grub.sh",
+        "../_/debian/98-cleanup.sh",
+        "../_/debian/99-zerodisk.sh"
       ]
     }
   ],
   "post-processors": [
     {
       "type": "vagrant",
-      "output": "ubuntu-desktop.box",
+      "output": "",
       "keep_input_artifact": true
     }
   ]
