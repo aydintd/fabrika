@@ -1,0 +1,70 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox",
+      "name": "ubuntu-desktop",
+      "vm_name": "ubuntu-desktop",
+      "guest_os_type": "Ubuntu",
+      "format": "ova",
+      "output_directory": "artifact",
+      "disk_size": 10000,
+      "headless": false,
+      "http_directory": ".",
+      "iso_checksum": "674ce4d2183e273bee8106a07a59d397",
+      "iso_checksum_type": "md5",
+      "iso_url": "http://cdimage.ubuntu.com/lubuntu/daily/current/saucy-alternate-i386.iso",
+      "guest_additions_path": "/tmp/VBoxGuestAdditions.iso",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "40m",
+      "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P -h now",
+      "boot_wait": "5s",
+      "boot_command": [
+        "<esc><enter><wait>",
+        "auto=true priority=critical url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/template.preseed ",
+        "console-keymaps-at/keymap=tr locale=tr_TR.UTF-8 ",
+        "fb=false debconf/frontend=noninteractive ",
+        "hostname=vagrant ",
+        "passwd/user-fullname=Vagrant ",
+        "passwd/username=vagrant ",
+        "passwd/user-password=vagrant ",
+        "passwd/user-password-again=vagrant ",
+        "<enter>"
+      ],
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "1024",
+          "--pae",
+          "on"
+        ]
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'",
+      "scripts": [
+        "../_/debian/10-update.sh",
+        "../_/debian/11-base.sh",
+        "../_/debian/12-organisation.sh",
+        "../_/debian/21-vagrant.sh",
+        "../_/debian/22-virtualbox.sh",
+        "template.sh",
+        "../_/debian/91-grub.sh",
+        "../_/debian/98-cleanup.sh",
+        "../_/debian/99-zerodisk.sh"
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "output": "ubuntu-desktop.box",
+      "keep_input_artifact": true
+    }
+  ]
+}
