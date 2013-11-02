@@ -11,11 +11,10 @@ d-i grub-installer/bootdev string /dev/sda
 d-i grub-installer/only_debian boolean true
 d-i grub-installer/with_other_os boolean true
 d-i keyboard-configuration/xkb-keymap select tr
-d-i mirror/country string manual
-d-i mirror/http/directory string /debian
-d-i mirror/http/hostname string ftp.linux.org.tr
 d-i mirror/http/proxy string
-d-i mirror/suite string testing
+d-i pkgsel/update-policy select none
+tasksel tasksel/first multiselect ubuntu-desktop
+d-i pkgsel/install-language-support boolean false
 d-i netcfg/choose_interface select auto
 d-i netcfg/get_domain string unassigned-domain
 d-i netcfg/get_hostname string unassigned-hostname
@@ -37,4 +36,3 @@ d-i pkgsel/update-policy select none
 d-i time/zone string Europe/Istanbul
 d-i user-setup/allow-password-weak boolean true
 d-i user-setup/encrypt-home boolean false
-tasksel tasksel/first multiselect standard, ubuntu-desktop

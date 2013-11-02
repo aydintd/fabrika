@@ -20,16 +20,18 @@
       "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P -h now",
       "boot_wait": "5s",
       "boot_command": [
-        "<esc><enter><wait>",
+        "<esc><esc><enter><wait>",
+        "/install/vmlinuz noapic ",
         "auto=true priority=critical url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/template.preseed ",
         "console-keymaps-at/keymap=tr locale=tr_TR.UTF-8 ",
         "fb=false debconf/frontend=noninteractive ",
+        "hostname={{ .Name }} ",
         "hostname=vagrant ",
         "passwd/user-fullname=Vagrant ",
         "passwd/username=vagrant ",
         "passwd/user-password=vagrant ",
         "passwd/user-password-again=vagrant ",
-        "<enter>"
+        "initrd=/install/initrd.gz -- <enter>"
       ],
       "vboxmanage": [
         [
