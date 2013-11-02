@@ -22,9 +22,9 @@
       "boot_command": [
         "<esc><enter><wait>",
         "auto=true priority=critical url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/template.preseed ",
-	"console-keymaps-at/keymap=tr locale=tr_TR.UTF-8 ",
+        "console-keymaps-at/keymap=tr locale=tr_TR.UTF-8 ",
         "fb=false debconf/frontend=noninteractive ",
-	"hostname=vagrant ",
+        "hostname=vagrant ",
         "passwd/user-fullname=Vagrant ",
         "passwd/username=vagrant ",
         "passwd/user-password=vagrant ",
