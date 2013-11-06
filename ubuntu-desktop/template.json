@@ -50,15 +50,15 @@
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'",
       "scripts": [
-        "../_/ubuntu/10-update.sh",
-        "../_/ubuntu/11-base.sh",
-        "../_/ubuntu/12-organisation.sh",
-        "../_/ubuntu/21-vagrant.sh",
-        "../_/ubuntu/22-virtualbox.sh",
+        "../_/debian/10-update.sh",
+        "../_/debian/11-base.sh",
+        "../_/debian/12-organisation.sh",
+        "../_/debian/21-vagrant.sh",
+        "../_/debian/22-virtualbox.sh",
         "template.sh",
-        "../_/ubuntu/91-grub.sh",
-        "../_/ubuntu/98-cleanup.sh",
-        "../_/ubuntu/99-zerodisk.sh"
+        "../_/debian/91-grub.sh",
+        "../_/debian/98-cleanup.sh",
+        "../_/debian/99-zerodisk.sh"
       ]
     }
   ],
