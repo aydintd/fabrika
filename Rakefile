@@ -192,10 +192,10 @@ class Template
       2,
       "-var-file=#{VARIABLE_FILENAME}"
     ) if File.exists?(VARIABLE_FILENAME)
-    cmd.insert(
-      2,
-      "-only=#{variant}"
-    ) if variant && variant != 'all'
+    #cmd.insert(
+    #  2,
+    #  "-only=#{variant}"
+    #) if variant && variant != 'all'
 
     FileUtils.mkdir_p CACHE_DIR
     IO.popen cmd, 'w' do |io|

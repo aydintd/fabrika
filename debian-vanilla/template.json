@@ -1,8 +1,8 @@
 {
   "builders": [
     {
-      "type": "virtualbox",
-      "name": "debian-vanilla",
+      "type": "virtualbox-iso",
+      "name": "debian-vanilla-virtualbox-iso",
       "vm_name": "debian-vanilla",
       "guest_os_type": "Debian",
       "format": "ova",
@@ -10,7 +10,7 @@
       "disk_size": 10000,
       "headless": false,
       "http_directory": ".",
-      "iso_checksum": "46ca016ad17990539e6375b0d8ff24ce",
+      "iso_checksum": "76a57c29045d1c32dad013b6c9af9f1e",
       "iso_checksum_type": "md5",
       "iso_url": "http://ftp.debian.org/debian/dists/unstable/main/installer-i386/current/images/netboot/mini.iso",
       "guest_additions_path": "/tmp/VBoxGuestAdditions.iso",
