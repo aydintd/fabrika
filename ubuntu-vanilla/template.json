@@ -1,7 +1,7 @@
 {
   "builders": [
     {
-      "type": "virtualbox",
+      "type": "virtualbox-iso",
       "name": "ubuntu-vanilla",
       "vm_name": "ubuntu-vanilla",
       "guest_os_type": "Ubuntu",
