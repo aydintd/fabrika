@@ -1,7 +1,7 @@
 ### Gereksinimler
-
+ 
 -   [Packer](http://www.packer.io/downloads.html)
-
+sdsa
 -   VirtualBox
 
 -   Rake
